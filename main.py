@@ -4,8 +4,8 @@ import random
 
 pygame.init()
 
-display_width = 1080
-display_height = 720
+display_width = 1280
+display_height = 1080
 
 screen = pygame.display.set_mode((display_width, display_height))
 pygame.display.set_caption('ArtificialCowIntelligenceMilk')
@@ -32,6 +32,7 @@ VIOLET_text = pygame.image.load('./circle/VIOLET_circle.png')
 move_X = 0
 move_Y = 90
 text_Y = 500
+move_Text = 0
 
 """CIRCLE"""
 def RED_circle_move(x, y):
@@ -78,6 +79,7 @@ run = True
 while run:
     screen.fill((0, 0, 0))
     move_X += 5
+    move_Text -= 5
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             run = False
@@ -86,69 +88,69 @@ while run:
 
     """CIRCLE"""
     #POSITIVE
-    YELLOW_circle_move(move_X+2530, move_Y)
-    RED_circle_move(move_X+2310, move_Y)
-    VIOLET_circle_move(move_X+2100, move_Y)
-    ORANGE_circle_move(move_X+1890, move_Y)
-    RED_circle_move(move_X+1680, move_Y)
-    GREEN_circle_move(move_X+1470, move_Y)
-    VIOLET_circle_move(move_X+1260, move_Y)
-    GREEN_circle_move(move_X+1050, move_Y)
-    BLUE_circle_move(move_X+840, move_Y)
-    VIOLET_circle_move(move_X+630, move_Y)
-    BLUE_circle_move(move_X+420, move_Y)
-    YELLOW_circle_move(move_X+210, move_Y)
+    YELLOW_circle_move(move_X+2700, move_Y)
+    RED_circle_move(move_X+2475, move_Y)
+    VIOLET_circle_move(move_X+2250, move_Y)
+    ORANGE_circle_move(move_X+2025, move_Y)
+    RED_circle_move(move_X+1800, move_Y)
+    GREEN_circle_move(move_X+1575, move_Y)
+    VIOLET_circle_move(move_X+1350, move_Y)
+    GREEN_circle_move(move_X+1125, move_Y)
+    BLUE_circle_move(move_X+900, move_Y)
+    VIOLET_circle_move(move_X+675, move_Y)
+    BLUE_circle_move(move_X+450, move_Y)
+    YELLOW_circle_move(move_X+225, move_Y)
 
     #ZERO
     RED_circle_move(move_X, move_Y)
 
     #NEGATIVE
-    GREEN_circle_move(move_X-210, move_Y)
-    ORANGE_circle_move(move_X-420, move_Y)
-    GREEN_circle_move(move_X-630, move_Y)
-    BLUE_circle_move(move_X-840, move_Y)
-    ORANGE_circle_move(move_X-1050, move_Y)
-    RED_circle_move(move_X-1260, move_Y)
-    YELLOW_circle_move(move_X-1470, move_Y)
-    VIOLET_circle_move(move_X-1680, move_Y)
-    RED_circle_move(move_X-1890, move_Y)
-    ORANGE_circle_move(move_X-2100, move_Y)
-    GREEN_circle_move(move_X-2310, move_Y)
-    YELLOW_circle_move(move_X-2530, move_Y)
+    GREEN_circle_move(move_X-225, move_Y)
+    ORANGE_circle_move(move_X-450, move_Y)
+    GREEN_circle_move(move_X-675, move_Y)
+    BLUE_circle_move(move_X-900, move_Y)
+    ORANGE_circle_move(move_X-1125, move_Y)
+    RED_circle_move(move_X-1350, move_Y)
+    YELLOW_circle_move(move_X-1575, move_Y)
+    VIOLET_circle_move(move_X-1800, move_Y)
+    RED_circle_move(move_X-2025, move_Y)
+    ORANGE_circle_move(move_X-2250, move_Y)
+    GREEN_circle_move(move_X-2475, move_Y)
+    YELLOW_circle_move(move_X-2700, move_Y)
     RED_circle_move(move_X, move_Y)
 
     """TEXT"""
     #POSITIVE
-    YELLOW_text_move(move_X-2530, text_Y)
-    RED_text_move(move_X-2310, text_Y)
-    VIOLET_text_move(move_X-2100, text_Y)
-    ORANGE_text_move(move_X-1890, text_Y)
-    RED_text_move(move_X-1680, text_Y)
-    GREEN_text_move(move_X-1470, text_Y)
-    VIOLET_text_move(move_X-1260, text_Y)
-    GREEN_text_move(move_X-1050, text_Y)
-    BLUE_text_move(move_X-840, text_Y)
-    VIOLET_text_move(move_X-630, text_Y)
-    BLUE_text_move(move_X-420, text_Y)
-    YELLOW_text_move(move_X-210, text_Y)
+    YELLOW_text_move(move_Text+2700, text_Y)
+    RED_text_move(move_Text+2475, text_Y)
+    VIOLET_text_move(move_Text+2250, text_Y)
+    ORANGE_text_move(move_Text+2025, text_Y)
+    RED_text_move(move_Text+1800, text_Y)
+    GREEN_text_move(move_Text+1575, text_Y)
+    VIOLET_text_move(move_Text+1350, text_Y)
+    GREEN_text_move(move_Text+1125, text_Y)
+    BLUE_text_move(move_Text+900, text_Y)
+    VIOLET_text_move(move_Text+675, text_Y)
+    BLUE_text_move(move_Text+450, text_Y)
+    YELLOW_text_move(move_Text+225, text_Y)
 
     #ZERO
     RED_text_move(move_X, move_Y)
 
     #NEGATIVE
-    GREEN_text_move(move_X-210, text_Y)
-    ORANGE_text_move(move_X-420, text_Y)
-    GREEN_text_move(move_X-630, text_Y)
-    BLUE_text_move(move_X-840, text_Y)
-    ORANGE_text_move(move_X-1050, text_Y)
-    RED_text_move(move_X-1260, text_Y)
-    YELLOW_text_move(move_X-1470, text_Y)
-    VIOLET_text_move(move_X-1680, text_Y)
-    RED_text_move(move_X-1890, text_Y)
-    ORANGE_text_move(move_X-2100, text_Y)
-    GREEN_text_move(move_X-2310, text_Y)
-    YELLOW_text_move(move_X-2530, text_Y)
-    RED_text_move(move_X, text_Y)
+    GREEN_text_move(move_Text-225, text_Y)
+    ORANGE_text_move(move_Text-450, text_Y)
+    GREEN_text_move(move_Text-675, text_Y)
+    BLUE_text_move(move_Text-900, text_Y)
+    ORANGE_text_move(move_Text-1125, text_Y)
+    RED_text_move(move_Text-1350, text_Y)
+    YELLOW_text_move(move_Text-1575, text_Y)
+    VIOLET_text_move(move_Text-1800, text_Y)
+    RED_text_move(move_Text-2025, text_Y)
+    ORANGE_text_move(move_Text-2250, text_Y)
+    GREEN_text_move(move_Text-2475, text_Y)
+    YELLOW_text_move(move_Text-2700, text_Y)
+    RED_text_move(move_Text, text_Y)
     pygame.display.update()
 
 pygame.quit()
