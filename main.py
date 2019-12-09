@@ -19,19 +19,19 @@ YELLOW_circle = pygame.image.load('./circle/YELLOW_circle.png')
 VIOLET_circle = pygame.image.load('./circle/VIOLET_circle.png')
 
 """COLOR_TEXT"""
-RED_text = pygame.image.load('./circle/RED_circle.png')
-GREEN_text = pygame.image.load('./circle/GREEN_circle.png')
-BLUE_text = pygame.image.load('./circle/BLUE_circle.png')
-ORANGE_text = pygame.image.load('./circle/ORANGE_circle.png')
-YELLOW_text = pygame.image.load('./circle/YELLOW_circle.png')
-VIOLET_text = pygame.image.load('./circle/VIOLET_circle.png')
+RED_text = pygame.image.load('./text/RED_text.png')
+GREEN_text = pygame.image.load('./text/GREEN_text.png')
+BLUE_text = pygame.image.load('./text/BLUE_text.png')
+ORANGE_text = pygame.image.load('./text/ORANGE_text.png')
+YELLOW_text = pygame.image.load('./text/YELLOW_text.png')
+VIOLET_text = pygame.image.load('./text/VIOLET_text.png')
 
 ################################################################################
 
 """move_COLOR"""
 move_X = 0
 move_Y = 90
-text_Y = 500
+text_Y = 660
 move_Text = 0
 
 """CIRCLE"""
@@ -55,22 +55,22 @@ def VIOLET_circle_move(x, y):
 
 """TEXT"""
 def RED_text_move(x, y):
-        screen.blit(RED_circle, (x, y))
+        screen.blit(RED_text, (x, y))
 
 def GREEN_text_move(x, y):
-        screen.blit(GREEN_circle, (x, y))
+        screen.blit(GREEN_text, (x, y))
 
 def BLUE_text_move(x, y):
-        screen.blit(BLUE_circle, (x, y))
+        screen.blit(BLUE_text, (x, y))
 
 def ORANGE_text_move(x, y):
-        screen.blit(ORANGE_circle, (x, y))
+        screen.blit(ORANGE_text, (x, y))
 
 def YELLOW_text_move(x, y):
-        screen.blit(YELLOW_circle, (x, y))
+        screen.blit(YELLOW_text, (x, y))
 
 def VIOLET_text_move(x, y):
-        screen.blit(VIOLET_circle, (x, y))
+        screen.blit(VIOLET_text, (x, y))
 
 ################################################################################
 
@@ -133,9 +133,6 @@ while run:
     VIOLET_text_move(move_Text+675, text_Y)
     BLUE_text_move(move_Text+450, text_Y)
     YELLOW_text_move(move_Text+225, text_Y)
-
-    #ZERO
-    RED_text_move(move_X, move_Y)
 
     #NEGATIVE
     GREEN_text_move(move_Text-225, text_Y)
