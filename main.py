@@ -5,10 +5,15 @@ import random
 pygame.init()
 
 display_width = 1280
-display_height = 1080
+display_height = 960
 
 screen = pygame.display.set_mode((display_width, display_height))
 pygame.display.set_caption('ArtificialCowIntelligenceMilk')
+
+################################################################################
+
+""""STAGE"""
+FRAME = pygame.image.load('./stage/frame.png')
 
 """COLOR_IMG"""
 RED_circle = pygame.image.load('./circle/RED_circle.png')
@@ -28,11 +33,17 @@ VIOLET_text = pygame.image.load('./text/VIOLET_text.png')
 
 ################################################################################
 
-"""move_COLOR"""
+"""MOVE_PARAMETERS"""
 move_X = 0
 move_Y = 90
-text_Y = 660
 move_Text = 0
+text_Y = 660
+
+################################################################################
+
+"""STAGE"""
+def frame(x, y):
+    screen.blit(FRAME, (x, y))
 
 """CIRCLE"""
 def RED_circle_move(x, y):
@@ -77,7 +88,7 @@ def VIOLET_text_move(x, y):
 run = True
 
 while run:
-    screen.fill((0, 0, 0))
+    screen.fill((255, 255, 255))
     move_X += 5
     move_Text -= 5
     for event in pygame.event.get():
@@ -85,6 +96,9 @@ while run:
             run = False
 
     """USING FUNCTION"""
+
+    """STAGE"""
+    frame(500, -50)
 
     """CIRCLE"""
     #POSITIVE
@@ -117,7 +131,6 @@ while run:
     ORANGE_circle_move(move_X-2250, move_Y)
     GREEN_circle_move(move_X-2475, move_Y)
     YELLOW_circle_move(move_X-2700, move_Y)
-    RED_circle_move(move_X, move_Y)
 
     """TEXT"""
     #POSITIVE
@@ -134,6 +147,9 @@ while run:
     BLUE_text_move(move_Text+450, text_Y)
     YELLOW_text_move(move_Text+225, text_Y)
 
+    #ZERO
+    RED_text_move(move_Text, text_Y)
+
     #NEGATIVE
     GREEN_text_move(move_Text-225, text_Y)
     ORANGE_text_move(move_Text-450, text_Y)
@@ -147,7 +163,7 @@ while run:
     ORANGE_text_move(move_Text-2250, text_Y)
     GREEN_text_move(move_Text-2475, text_Y)
     YELLOW_text_move(move_Text-2700, text_Y)
-    RED_text_move(move_Text, text_Y)
+
     pygame.display.update()
 
 pygame.quit()
