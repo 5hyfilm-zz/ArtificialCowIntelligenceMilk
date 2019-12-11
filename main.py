@@ -18,6 +18,11 @@ pygame.display.set_icon(icon_img)
 
 ################################################################################
 
+"""SOUND"""
+# sound = pygame.mixer.Sound('')
+# pygame.mixer.music.load()
+################################################################################
+
 """"STAGE"""
 COW = pygame.image.load('./stage_img/cow.png')
 FRAME = pygame.image.load('./stage_img/frame.png')
@@ -105,6 +110,8 @@ def paused():
         button('QUIT', 550, 450, 100, 50, dark_red_code, bright_red_code, quit_game)
 
 def game_intro():
+    pygame.mixer.music.load('./music/Sand_Castle.mp3')
+    pygame.mixer.music.play(-1)
 
     intro = True
 
@@ -195,7 +202,6 @@ def VIOLET_text_move(x, y):
 ################################################################################
 
 def gameplay():
-    global pause
     move_X = 0
     move_Y = 90
     move_Text = 0
