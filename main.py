@@ -13,7 +13,9 @@ pygame.display.set_caption('ArtificialCowIntelligenceMilk')
 ################################################################################
 
 """"STAGE"""
+COW = pygame.image.load('./stage/cow.png')
 FRAME = pygame.image.load('./stage/frame.png')
+LINE = pygame.image.load('./stage/line.png')
 
 """COLOR_IMG"""
 RED_circle = pygame.image.load('./circle/RED_circle.png')
@@ -37,17 +39,17 @@ pause = False
 """COLOE_CODE"""
 black_code = (0, 0, 0)
 whit_code = (255, 255, 255)
+orange_code = (255, 165, 0)
 
-dark_red = (200, 0, 0)
-dark_green = (0, 200, 0)
+dark_red_code = (200, 0, 0)
+dark_green_code = (0, 200, 0)
 
-bright_red = (255, 0, 0)
-bright_green = (0, 255, 0)
+bright_red_code = (255, 0, 0)
+bright_green_code = (0, 255, 0)
 
 ################################################################################
 
 """Intro"""
-
 def button(msg, x, y, w, h, ic, ac, action=None):
     mouse = pygame.mouse.get_pos()
     #print(mouse)
@@ -93,8 +95,8 @@ def paused():
         TextRect.center = ((display_width/2),(display_height/2))
         screen.blit(TextSurf, TextRect)
 
-        button('CONTINUED', 150, 450, 100, 50, dark_green, bright_green, unpaused)
-        button('QUIT', 550, 450, 100, 50, dark_red, bright_red, quit_game)
+        button('CONTINUED', 150, 450, 100, 50, dark_green_code, bright_green_code, unpaused)
+        button('QUIT', 550, 450, 100, 50, dark_red_code, bright_red_code, quit_game)
 
 def game_intro():
 
@@ -107,14 +109,19 @@ def game_intro():
                 pygame.quit()
                 quit()
 
-        screen.fill(whit_code)
-        largeText = pygame.font.Font('freesansbold.ttf',65)
-        TextSurf, TextRect = text_objects("Artificial Cow Intelligence Milk", largeText)
-        TextRect.center = ((display_width/2),(display_height/2))
+        screen.fill(orange_code)
+        largeText = pygame.font.Font('freesansbold.ttf',45)
+        TextSurf, TextRect = text_objects("Artificial Cow", largeText)
+        TextSurf2, TextRect2 = text_objects("Intelligence Milk", largeText)
+        TextRect.center = ((display_width/1.5),(display_height/3.5))
+        TextRect2.center = ((display_width/1.5),(display_height/2.75))
         screen.blit(TextSurf, TextRect)
+        screen.blit(TextSurf2, TextRect2)
 
-        button('START', 150, 450, 100, 50, dark_green, bright_green, gameplay)
-        button('QUIT', 550, 450, 100, 50, dark_red, bright_red, quit_game)
+        button('START', 675, 350, 100, 50, dark_green_code, bright_green_code, gameplay)
+        button('QUIT', 675, 450, 100, 50, dark_red_code, bright_red_code, quit_game)
+
+        screen.blit(COW, (50, 150))
 
         pygame.display.update()
 
@@ -137,6 +144,9 @@ def message_display(text):
 """STAGE"""
 def frame(x, y):
     screen.blit(FRAME, (x, y))
+
+def line(x, y):
+    screen.blit(LINE, (x, y))
 
 """CIRCLE"""
 def RED_circle_move(x, y):
@@ -183,7 +193,7 @@ def gameplay():
     move_X = 0
     move_Y = 90
     move_Text = 0
-    text_Y = 660
+    text_Y = 550
 
     run = True
 
@@ -202,7 +212,9 @@ def gameplay():
         """USING FUNCTION"""
 
         """STAGE"""
-        frame(500, -50)
+        frame(410, 10)
+        line(0, 90)
+        line(0, 475)
 
         """CIRCLE"""
         #POSITIVE
@@ -267,6 +279,9 @@ def gameplay():
         ORANGE_text_move(move_Text-2250, text_Y)
         GREEN_text_move(move_Text-2475, text_Y)
         YELLOW_text_move(move_Text-2700, text_Y)
+
+        button('SCORE: ', 850, 30, 100, 50, whit_code, whit_code)
+        button('QUIT', 850, 650, 100, 50, dark_red_code, bright_red_code, quit_game)
 
         pygame.display.update()
 
