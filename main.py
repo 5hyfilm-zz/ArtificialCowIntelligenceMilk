@@ -19,25 +19,25 @@ pygame.display.set_icon(icon_img)
 ################################################################################
 
 """"STAGE"""
-COW = pygame.image.load('./stage/cow.png')
-FRAME = pygame.image.load('./stage/frame.png')
-LINE = pygame.image.load('./stage/line.png')
+COW = pygame.image.load('./stage_img/cow.png')
+FRAME = pygame.image.load('./stage_img/frame.png')
+LINE = pygame.image.load('./stage_img/line.png')
 
 """COLOR_IMG"""
-RED_circle = pygame.image.load('./circle/RED_circle.png')
-GREEN_circle = pygame.image.load('./circle/GREEN_circle.png')
-BLUE_circle = pygame.image.load('./circle/BLUE_circle.png')
-ORANGE_circle = pygame.image.load('./circle/ORANGE_circle.png')
-YELLOW_circle = pygame.image.load('./circle/YELLOW_circle.png')
-VIOLET_circle = pygame.image.load('./circle/VIOLET_circle.png')
+RED_circle = pygame.image.load('./circle_img/RED_circle.png')
+GREEN_circle = pygame.image.load('./circle_img/GREEN_circle.png')
+BLUE_circle = pygame.image.load('./circle_img/BLUE_circle.png')
+ORANGE_circle = pygame.image.load('./circle_img/ORANGE_circle.png')
+YELLOW_circle = pygame.image.load('./circle_img/YELLOW_circle.png')
+VIOLET_circle = pygame.image.load('./circle_img/VIOLET_circle.png')
 
 """COLOR_TEXT"""
-RED_text = pygame.image.load('./text/RED_text.png')
-GREEN_text = pygame.image.load('./text/GREEN_text.png')
-BLUE_text = pygame.image.load('./text/BLUE_text.png')
-ORANGE_text = pygame.image.load('./text/ORANGE_text.png')
-YELLOW_text = pygame.image.load('./text/YELLOW_text.png')
-VIOLET_text = pygame.image.load('./text/VIOLET_text.png')
+RED_text = pygame.image.load('./text_img/RED_text.png')
+GREEN_text = pygame.image.load('./text_img/GREEN_text.png')
+BLUE_text = pygame.image.load('./text_img/BLUE_text.png')
+ORANGE_text = pygame.image.load('./text_img/ORANGE_text.png')
+YELLOW_text = pygame.image.load('./text_img/YELLOW_text.png')
+VIOLET_text = pygame.image.load('./text_img/VIOLET_text.png')
 
 pause = False
 ################################################################################
