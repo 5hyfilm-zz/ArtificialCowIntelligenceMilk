@@ -18,15 +18,12 @@ pygame.display.set_icon(icon_img)
 
 ################################################################################
 
-"""SOUND"""
-# sound = pygame.mixer.Sound('')
-# pygame.mixer.music.load()
-################################################################################
-
 """"STAGE"""
 COW = pygame.image.load('./stage_img/cow.png')
 FRAME = pygame.image.load('./stage_img/frame.png')
 LINE = pygame.image.load('./stage_img/line.png')
+FIREWORK = pygame.image.load('./stage_img/firework.png')
+GRASS = pygame.image.load('./stage_img/grass.png')
 
 """COLOR_IMG"""
 RED_circle = pygame.image.load('./circle_img/RED_circle.png')
@@ -44,7 +41,10 @@ ORANGE_text = pygame.image.load('./text_img/ORANGE_text.png')
 YELLOW_text = pygame.image.load('./text_img/YELLOW_text.png')
 VIOLET_text = pygame.image.load('./text_img/VIOLET_text.png')
 
+################################################################################
+
 pause = False
+
 ################################################################################
 
 """COLOE_CODE"""
@@ -79,7 +79,7 @@ def button(msg, x, y, w, h, ic, ac, action=None):
     else:
         pygame.draw.rect(screen, ic, (x, y, w, h))
 
-    smallText = pygame.font.Font('freesansbold.ttf', 20)
+    smallText = pygame.font.Font('./font/LilitaOne-Regular.ttf', 40)
     textSurface, textRect = text_objects(msg, smallText)
     textRect.center = ((x+(w/2)), (y+(h/2)))
     screen.blit(textSurface, textRect)
@@ -92,7 +92,7 @@ def unpaused():
     global pause
     pause = False
 
-def paused():
+def nice():
     while pause:
         for event in pygame.event.get():
             #print(event)
@@ -101,13 +101,26 @@ def paused():
                 quit()
 
         screen.fill(whit_code)
-        largeText = pygame.font.Font('freesansbold.ttf',65)
-        TextSurf, TextRect = text_objects("PAUSED", largeText)
-        TextRect.center = ((display_width/2),(display_height/2))
+        largeText = pygame.font.Font('./font/LilitaOne-Regular.ttf',65)
+        TextSurf, TextRect = text_objects('NICE', largeText)
+        score_text, score_rect = text_objects('TOTAL SCORE:  1', largeText)
+        TextRect.center = ((display_width/2),(display_height/3.5))
+        score_rect.center = ((display_width/2),(display_height/2.5))
+        #FIREWORK
+        screen.blit(FIREWORK, (150, 50))
+        screen.blit(FIREWORK, (630, 50))
+        #GRASS
+        screen.blit(GRASS, (0, 620))
+        screen.blit(GRASS, (528, 620))
+        screen.blit(GRASS, (1056, 620))
+        #TEXT
         screen.blit(TextSurf, TextRect)
+        screen.blit(score_text, score_rect)
 
-        button('CONTINUED', 150, 450, 100, 50, dark_green_code, bright_green_code, unpaused)
-        button('QUIT', 550, 450, 100, 50, dark_red_code, bright_red_code, quit_game)
+        button('CONTINUED', 150, 450, 225, 50, dark_green_code, bright_green_code, unpaused)
+        button('QUIT', 720, 450, 225, 50, dark_red_code, bright_red_code, quit_game)
+
+        pygame.display.update()
 
 def game_intro():
     pygame.mixer.music.load('./music/Sand_Castle.mp3')
@@ -123,7 +136,7 @@ def game_intro():
                 quit()
 
         screen.fill(orange_code)
-        largeText = pygame.font.Font('freesansbold.ttf',45)
+        largeText = pygame.font.Font('./font/LilitaOne-Regular.ttf',60)
         TextSurf, TextRect = text_objects("Artificial Cow", largeText)
         TextSurf2, TextRect2 = text_objects("Intelligence Milk", largeText)
         TextRect.center = ((display_width/1.5),(display_height/3.5))
@@ -131,8 +144,8 @@ def game_intro():
         screen.blit(TextSurf, TextRect)
         screen.blit(TextSurf2, TextRect2)
 
-        button('START', 675, 350, 100, 50, dark_green_code, bright_green_code, gameplay)
-        button('QUIT', 675, 450, 100, 50, dark_red_code, bright_red_code, quit_game)
+        button('START', 675, 350, 125, 50, dark_green_code, bright_green_code, gameplay)
+        button('QUIT', 675, 450, 125, 50, dark_red_code, bright_red_code, quit_game)
 
         screen.blit(COW, (50, 150))
 
@@ -143,7 +156,7 @@ def text_objects(text, font):
     return textSurface, textSurface.get_rect()
 
 def message_display(text):
-    largeText = pygame.font.Font('freesansbold.ttf',115)
+    largeText = pygame.font.Font('./font/LilitaOne-Regular.ttf',115)
     TextSurf, TextRect = text_objects(text, largeText)
     TextRect.center = ((display_width/2),(display_height/2))
     screen.blit(TextSurf, TextRect)
@@ -202,6 +215,8 @@ def VIOLET_text_move(x, y):
 ################################################################################
 
 def gameplay():
+    global pause
+
     move_X = 0
     move_Y = 90
     move_Text = 0
@@ -217,9 +232,9 @@ def gameplay():
             if event.type == pygame.QUIT:
                 run = False
             if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_p:
+                if event.key == pygame.K_SPACE:
                     pause = True
-                    paused()
+                    nice()
 
         """USING FUNCTION"""
 
@@ -248,7 +263,7 @@ def gameplay():
 
         #NEGATIVE
         GREEN_circle_move(move_X-225, move_Y)
-        ORANGE_circle_move(move_X-450, move_Y)
+        YELLOW_circle_move(move_X-450, move_Y)
         GREEN_circle_move(move_X-675, move_Y)
         BLUE_circle_move(move_X-900, move_Y)
         ORANGE_circle_move(move_X-1125, move_Y)
@@ -271,7 +286,7 @@ def gameplay():
         VIOLET_text_move(move_Text+1350, text_Y)
         GREEN_text_move(move_Text+1125, text_Y)
         BLUE_text_move(move_Text+900, text_Y)
-        VIOLET_text_move(move_Text+675, text_Y)
+        RED_text_move(move_Text+675, text_Y)
         BLUE_text_move(move_Text+450, text_Y)
         YELLOW_text_move(move_Text+225, text_Y)
 
@@ -287,8 +302,8 @@ def gameplay():
         RED_text_move(move_Text-1350, text_Y)
         YELLOW_text_move(move_Text-1575, text_Y)
         VIOLET_text_move(move_Text-1800, text_Y)
-        RED_text_move(move_Text-2025, text_Y)
-        ORANGE_text_move(move_Text-2250, text_Y)
+        ORANGE_text_move(move_Text-2025, text_Y)
+        RED_text_move(move_Text-2250, text_Y)
         GREEN_text_move(move_Text-2475, text_Y)
         YELLOW_text_move(move_Text-2700, text_Y)
 
@@ -296,6 +311,8 @@ def gameplay():
         button('QUIT', 850, 650, 100, 50, dark_red_code, bright_red_code, quit_game)
 
         pygame.display.update()
+
+################################################################################
 
 game_intro()
 gameplay()
