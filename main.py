@@ -1,6 +1,5 @@
 """Import Libraries"""
 import pygame
-import random
 
 pygame.init()
 
