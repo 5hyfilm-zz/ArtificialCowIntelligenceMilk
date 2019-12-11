@@ -12,6 +12,12 @@ pygame.display.set_caption('ArtificialCowIntelligenceMilk')
 
 ################################################################################
 
+"""ICON"""
+icon_img = pygame.image.load('./icon.png')
+pygame.display.set_icon(icon_img)
+
+################################################################################
+
 """"STAGE"""
 COW = pygame.image.load('./stage/cow.png')
 FRAME = pygame.image.load('./stage/frame.png')
