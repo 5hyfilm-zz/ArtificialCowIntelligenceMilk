@@ -6,4 +6,4 @@ This project is an innovation that have been to competition in Korea Internation
 2. Change directory to ArtificialCowIntelligenceMilk and type ```python(3) main.py``` in Terminal.
 
 ![alt text](https://github.com/filmer2002/ArtificialCowIntelligenceMilk/blob/master/screen_shot.png)
-![alt text](https://photos.app.goo.gl/bRCozVWPaB263ocV7)
+video link: https://photos.app.goo.gl/bRCozVWPaB263ocV7)
